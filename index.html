@@ -1,119 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deopath | AI Explorer</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
-    body { background-color:#0a0a0f; color:#e0e0ff; scroll-behavior:smooth; }
-
-    /* Header */
-    header { position:fixed; width:100%; background:rgba(10,10,15,0.9); backdrop-filter:blur(8px);
-             display:flex; justify-content:space-between; align-items:center; padding:15px 40px;
-             z-index:1000; border-bottom:1px solid rgba(0,255,255,0.2); }
-    #logo {
-      font-size: 1.8em;
-      font-weight: bold;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
-      letter-spacing: 2px;
-      cursor: default;
-      transition: transform 0.3s;
-    }
-    #logo:hover { transform: scale(1.1); }
-    nav a { margin:0 15px; text-decoration:none; color:#e0e0ff; transition:color 0.3s; }
-    nav a:hover { color:#00ffff; }
-
-    section { padding:100px 60px; min-height:100vh; }
-
-    .section-title { font-size:2em; color:#00ffff; text-align:center; margin-bottom:40px; text-shadow:0 0 15px #00ffff; }
-    .content { max-width:900px; margin:0 auto; line-height:1.8; color:#c0c0e0; }
-
-    footer { text-align:center; padding:30px; border-top:1px solid rgba(0,255,255,0.1); color:#7070a0; font-size:0.9em; }
-
-    /* Info Cards */
-    .info-card { background: rgba(255,255,255,0.05); border:1px solid rgba(0,255,255,0.2); border-radius:15px; padding:20px; margin:20px 0; transition: transform 0.3s, box-shadow 0.3s; }
-    .info-card:hover { transform: translateY(-5px); box-shadow:0 0 25px rgba(0,255,255,0.2); }
-    .info-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; align-items:center; }
-    .info-grid img { max-width:100px; display:block; margin:auto; }
-
-    /* Signup Form */
-    form input { width:100%; padding:10px; margin:10px 0; border-radius:8px; border:none; }
-    form button { padding:10px 20px; border:none; border-radius:8px; background:#00ffff; color:#0a0a0f; font-weight:bold; cursor:pointer; transition:0.3s; }
-    form button:hover { background:#00cccc; }
-
-    /* Mobile */
-    @media (max-width:768px){
-      header { flex-direction:column; padding:15px 20px; }
-      nav { margin-top:10px; }
-      section { padding:80px 20px; }
-      .section-title { font-size:1.5em; margin-bottom:20px; }
-      .info-grid { grid-template-columns:1fr; text-align:center; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deopath - Navigating the Future</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deopath-primary': '#4F46E5', // Indigo 600
+                        'deopath-secondary': '#818CF8', // Indigo 400
+                        'deopath-dark': '#1F2937', // Gray 800
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scroll behavior for smooth transitions */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Style the active link if we had a state management, but for simplicity, we just use hover */
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-deopath-dark font-sans">
 
-  <!-- Header -->
-  <header>
-    <h1 id="logo">Deopath</h1>
-    <nav>
-      <a href="#info">Info</a>
-      <a href="#signup">Sign Up</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 shadow-md backdrop-blur-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-deopath-primary tracking-tight">Deopath</a>
+            <div class="space-x-4 md:space-x-8 hidden sm:flex">
+                <a href="#vision" class="nav-link text-gray-600 hover:text-deopath-primary font-medium transition duration-150">Vision</a>
+                <a href="#mission" class="nav-link text-gray-600 hover:text-deopath-primary font-medium transition duration-150">Mission</a>
+                <a href="#services" class="nav-link text-gray-600 hover:text-deopath-primary font-medium transition duration-150">Services</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-flex px-4 py-2 bg-deopath-primary text-white font-semibold rounded-lg shadow-md hover:bg-deopath-secondary transition duration-300">Contact Us</a>
+        </nav>
+    </header>
 
-  <!-- Info Section -->
-  <section id="info">
-    <h2 class="section-title">Info</h2>
-    <div class="content info-grid">
-      <div class="info-card">
-        <p><strong>Founder:</strong> Soumodeep Patra</p>
-        <p><strong>CEO:</strong> Soumodeep Patra</p>
-        <p><strong>Date of Foundation:</strong> 10-Nov-2025</p>
-        <p><strong>Special Partner:</strong> Chat-GPT</p>
-      </div>
-      <div class="info-card">
-        <p><strong>Made in India</strong></p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Made_in_India_Logo.svg" alt="Made in India Logo">
-      </div>
-    </div>
-  </section>
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="hero" class="py-20 md:py-32 bg-gradient-to-br from-deopath-primary to-deopath-secondary text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight tracking-tight">
+                    Your Path to Digital Excellence
+                </h1>
+                <p class="text-lg sm:text-xl max-w-3xl mx-auto mb-8 opacity-90">
+                    Deopath is dedicated to pioneering innovative solutions that transform complex challenges into clear, actionable strategies for the future.
+                </p>
+                <a href="#services" class="inline-flex items-center px-8 py-3 text-lg bg-white text-deopath-primary font-bold rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition duration-300 transform">
+                    Explore Our Offerings
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </section>
 
-  <!-- Sign Up Form -->
-  <section id="signup">
-    <h2 class="section-title">Create Account</h2>
-    <div class="content">
-      <form id="signupForm">
-        <input type="text" id="username" placeholder="Username" required />
-        <input type="text" id="name" placeholder="Full Name" required />
-        <input type="tel" id="mobile" placeholder="Mobile Number" required />
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
-  </section>
+        <!-- 2. Vision Section (Informational) -->
+        <section id="vision" class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:flex lg:items-center lg:justify-between">
+                    <div class="lg:w-1/2">
+                        <span class="text-deopath-secondary font-semibold uppercase tracking-wider mb-2 block">Our North Star</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+                            A Vision for a Connected World
+                        </h2>
+                        <p class="mt-4 text-lg text-gray-600">
+                            Our vision is to be the leading catalyst in the technological landscape, known globally for creating seamless, intelligent, and human-centric digital experiences. We strive to anticipate future trends and embed sustainable innovation into the core of every product we develop.
+                        </p>
+                        <p class="mt-4 text-lg text-gray-600">
+                            We see a future where technology empowers every individual and organization to reach their full potential without friction.
+                        </p>
+                    </div>
+                    <div class="lg:w-1/2 mt-10 lg:mt-0 lg:pl-12">
+                        <img src="https://placehold.co/600x400/818CF8/FFFFFF?text=Visionary+Strategy" alt="Abstract illustration of strategy and vision" class="w-full h-auto rounded-xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="content">
-      <p>You can add your email or social links here soon.</p>
-    </div>
-  </section>
+        <!-- 3. Mission Section (Informational) -->
+        <section id="mission" class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-deopath-secondary font-semibold uppercase tracking-wider mb-2 block">What Drives Us</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-12">
+                    Our Commitment: Clarity and Innovation
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Value 1 -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-deopath-primary">
+                        <svg class="w-10 h-10 text-deopath-primary mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.275a1.125 1.125 0 011.237 0l1.35 1.35C22.618 6.643 23 7.825 23 9c0 5.523-4.477 10-10 10S3 14.523 3 9c0-1.175.382-2.357 1.05-3.025l1.35-1.35a1.125 1.125 0 011.237 0z"></path></svg>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Integrity First</h3>
+                        <p class="text-gray-600">We operate with complete transparency, ensuring our clients always understand the 'why' behind every solution.</p>
+                    </div>
+                    <!-- Value 2 -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-deopath-primary">
+                        <svg class="w-10 h-10 text-deopath-primary mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Pioneering Innovation</h3>
+                        <p class="text-gray-600">We constantly push the boundaries of technology to deliver cutting-edge products and measurable results.</p>
+                    </div>
+                    <!-- Value 3 -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-deopath-primary">
+                        <svg class="w-10 h-10 text-deopath-primary mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Client-Centric</h3>
+                        <p class="text-gray-600">Our success is measured by the success of our clients. We focus on true partnership and shared growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <footer>
-    <p>© Deopath 2025 | All rights reserved.</p>
-  </footer>
+        <!-- 4. Services Section (Informational) -->
+        <section id="services" class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-deopath-secondary font-semibold uppercase tracking-wider mb-2 block">What We Offer</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">
+                        Comprehensive Digital Solutions
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1: Web Development -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:shadow-2xl">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-deopath-primary/10 text-deopath-primary mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4m-4-4h-4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Full-Stack Development</h3>
+                        <p class="text-gray-600">Building scalable, responsive, and secure web applications from the ground up, tailored to modern business needs.</p>
+                    </div>
 
-  <!-- Optional: Signup Form Alert -->
-  <script>
-    document.getElementById('signupForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      alert("Account creation will work when Firebase is configured.");
-    });
-  </script>
+                    <!-- Service 2: Cloud Strategy -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:shadow-2xl">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-deopath-primary/10 text-deopath-primary mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Cloud Migration & Optimization</h3>
+                        <p class="text-gray-600">Expert guidance on migrating infrastructure to the cloud (AWS, GCP, Azure) and optimizing costs for peak performance.</p>
+                    </div>
+
+                    <!-- Service 3: Data Analytics -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:shadow-2xl">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-deopath-primary/10 text-deopath-primary mb-4">
+           5. Contact CTA Section -->
+        <section id="contact" class="py-16 md:py-24 bg-deopath-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+                    Ready to Start Your Journey?
+                </h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                    Let's collaborate on defining a clear path forward for your biggest digital challenges.
+                </p>
+                <a href="mailto:info@deopath.com" class="inline-flex items-center px-8 py-3 text-lg bg-deopath-secondary text-white font-bold rounded-xl shadow-xl hover:bg-deopath-primary transition duration-300 transform">
+                    Get in Touch Today
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 Deopath. All rights reserved. | Navigating your future.</p>
+        </div>
+    </footer>
 
 </body>
-</html>
+</html>                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 3-3m-4 6h4M4 12h4m-4 4h4m10 4h4m0-4h-4m-6 4h4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Advanced Data Insights</h3>
+                        <p class="text-gray-600">Transforming raw data into meaningful business intelligence using cutting-edge machine learning and visualization tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
