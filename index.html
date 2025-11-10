@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deopath - Navigating the Future</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -35,28 +34,31 @@
 </head>
 <body class="bg-gray-50 text-deopath-dark font-sans">
 
-    <!-- Header & Navigation -->
-    <header class="sticky top-0 z-50 bg-white/95 shadow-md backdrop-blur-sm">
+    <!-- Header & Navigation --><header class="sticky top-0 z-50 bg-white/95 shadow-md backdrop-blur-sm">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-2xl font-bold text-deopath-primary tracking-tight">Deopath</a>
+            <a href="#hero" class="text-2xl font-bold text-deopath-primary tracking-tight">Deopath<sup class="text-xs align-super">™</sup></a>
             <div class="space-x-4 md:space-x-8 hidden sm:flex">
                 <a href="#vision" class="nav-link text-gray-600 hover:text-deopath-primary font-medium transition duration-150">Vision</a>
                 <a href="#mission" class="nav-link text-gray-600 hover:text-deopath-primary font-medium transition duration-150">Mission</a>
                 <a href="#services" class="nav-link text-gray-600 hover:text-deopath-primary font-medium transition duration-150">Services</a>
+                <a href="#info" class="nav-link text-gray-600 hover:text-deopath-primary font-medium transition duration-150">Info</a>
             </div>
             <a href="#contact" class="hidden md:inline-flex px-4 py-2 bg-deopath-primary text-white font-semibold rounded-lg shadow-md hover:bg-deopath-secondary transition duration-300">Contact Us</a>
         </nav>
     </header>
 
     <main>
-        <!-- 1. Hero Section -->
-        <section id="hero" class="py-20 md:py-32 bg-gradient-to-br from-deopath-primary to-deopath-secondary text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- 1. Hero Section --><section id="hero" class="relative py-20 md:py-32 bg-gradient-to-br from-deopath-primary to-deopath-secondary text-white overflow-hidden">
+            <!-- Anime India Background Image --><div class="absolute inset-0 z-0">
+                <img src="https://image.pollinations.ai/prompt/land of india in anime style, vibrant colors, cultural elements, intricate details, wide shot" alt="Anime style land of India" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-br from-deopath-primary/70 to-deopath-secondary/70"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight tracking-tight">
                     Your Path to Digital Excellence
                 </h1>
                 <p class="text-lg sm:text-xl max-w-3xl mx-auto mb-8 opacity-90">
-                    Deopath is dedicated to pioneering innovative solutions that transform complex challenges into clear, actionable strategies for the future.
+                    Deopath<sup class="text-xs align-super">™</sup> is dedicated to pioneering innovative solutions that transform complex challenges into clear, actionable strategies for the future.
                 </p>
                 <a href="#services" class="inline-flex items-center px-8 py-3 text-lg bg-white text-deopath-primary font-bold rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition duration-300 transform">
                     Explore Our Offerings
@@ -65,8 +67,7 @@
             </div>
         </section>
 
-        <!-- 2. Vision Section (Informational) -->
-        <section id="vision" class="py-16 md:py-24 bg-white">
+        <!-- 2. Vision Section (Informational) --><section id="vision" class="py-16 md:py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:flex lg:items-center lg:justify-between">
                     <div class="lg:w-1/2">
@@ -88,28 +89,24 @@
             </div>
         </section>
 
-        <!-- 3. Mission Section (Informational) -->
-        <section id="mission" class="py-16 md:py-24 bg-gray-50">
+        <!-- 3. Mission Section (Informational) --><section id="mission" class="py-16 md:py-24 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <span class="text-deopath-secondary font-semibold uppercase tracking-wider mb-2 block">What Drives Us</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-12">
                     Our Commitment: Clarity and Innovation
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Value 1 -->
-                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-deopath-primary">
+                    <!-- Value 1 --><div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-deopath-primary">
                         <svg class="w-10 h-10 text-deopath-primary mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.275a1.125 1.125 0 011.237 0l1.35 1.35C22.618 6.643 23 7.825 23 9c0 5.523-4.477 10-10 10S3 14.523 3 9c0-1.175.382-2.357 1.05-3.025l1.35-1.35a1.125 1.125 0 011.237 0z"></path></svg>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Integrity First</h3>
                         <p class="text-gray-600">We operate with complete transparency, ensuring our clients always understand the 'why' behind every solution.</p>
                     </div>
-                    <!-- Value 2 -->
-                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-deopath-primary">
+                    <!-- Value 2 --><div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-deopath-primary">
                         <svg class="w-10 h-10 text-deopath-primary mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Pioneering Innovation</h3>
                         <p class="text-gray-600">We constantly push the boundaries of technology to deliver cutting-edge products and measurable results.</p>
                     </div>
-                    <!-- Value 3 -->
-                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-deopath-primary">
+                    <!-- Value 3 --><div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-deopath-primary">
                         <svg class="w-10 h-10 text-deopath-primary mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Client-Centric</h3>
                         <p class="text-gray-600">Our success is measured by the success of our clients. We focus on true partnership and shared growth.</p>
@@ -118,8 +115,7 @@
             </div>
         </section>
 
-        <!-- 4. Services Section (Informational) -->
-        <section id="services" class="py-16 md:py-24 bg-white">
+        <!-- 4. Services Section (Informational) --><section id="services" class="py-16 md:py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <span class="text-deopath-secondary font-semibold uppercase tracking-wider mb-2 block">What We Offer</span>
@@ -129,8 +125,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service 1: Web Development -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:shadow-2xl">
+                    <!-- Service 1: Web Development --><div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:shadow-2xl">
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-deopath-primary/10 text-deopath-primary mb-4">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4m-4-4h-4"></path></svg>
                         </div>
@@ -138,8 +133,7 @@
                         <p class="text-gray-600">Building scalable, responsive, and secure web applications from the ground up, tailored to modern business needs.</p>
                     </div>
 
-                    <!-- Service 2: Cloud Strategy -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:shadow-2xl">
+                    <!-- Service 2: Cloud Strategy --><div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:shadow-2xl">
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-deopath-primary/10 text-deopath-primary mb-4">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                         </div>
@@ -147,11 +141,61 @@
                         <p class="text-gray-600">Expert guidance on migrating infrastructure to the cloud (AWS, GCP, Azure) and optimizing costs for peak performance.</p>
                     </div>
 
-                    <!-- Service 3: Data Analytics -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:shadow-2xl">
+                    <!-- Service 3: Data Analytics --><div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-start transition duration-300 hover:shadow-2xl">
                         <div class="flex items-center justify-center w-12 h-12 rounded-full bg-deopath-primary/10 text-deopath-primary mb-4">
-           5. Contact CTA Section -->
-        <section id="contact" class="py-16 md:py-24 bg-deopath-dark">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 3-3m-4 6h4M4 12h4m-4 4h4m10 4h4m0-4h-4m-6 4h4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Advanced Data Insights</h3>
+                        <p class="text-gray-600">Transforming raw data into meaningful business intelligence using cutting-edge machine learning and visualization tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Info Section --><section id="info" class="py-16 md:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-deopath-secondary font-semibold uppercase tracking-wider mb-2 block">Our Foundation</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">
+                        About Deopath<sup class="text-xs align-super">™</sup>
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                    <!-- Founder & CEO --><div class="bg-white p-6 rounded-xl shadow-lg text-center h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Leadership</h3>
+                            <p class="text-lg text-gray-700 mb-1">Founder: <span class="font-semibold">Soumodeep Patra</span></p>
+                            <p class="text-lg text-gray-700">CEO: <span class="font-semibold">Soumodeep Patra</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Date of Foundation & Made in India --><div class="bg-white p-6 rounded-xl shadow-lg text-center h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Origins</h3>
+                            <p class="text-lg text-gray-700 mb-4">Date of Foundation: <span class="font-semibold">January 1, 2025</span></p>
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg text-gray-700 font-semibold mb-2">Made in India</span>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Made_in_India_logo.svg/1200px-Made_in_India_logo.svg.png" alt="Made in India Logo" class="h-16 w-auto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Special Partners --><div class="bg-white p-6 rounded-xl shadow-lg text-center h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Special Partners</h3>
+                            <p class="text-lg text-gray-700 mb-2">Powered by cutting-edge AI from:</p>
+                            <div class="flex justify-center items-center space-x-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png" alt="ChatGPT Logo" class="h-8 w-auto">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Google_Gemini_logo.svg/1200px-Google_Gemini_logo.svg.png" alt="Gemini Logo" class="h-8 w-auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contact CTA Section (renumbered) --><section id="contact" class="py-16 md:py-24 bg-deopath-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">
                     Ready to Start Your Journey?
@@ -166,21 +210,11 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-100 py-8">
+    <!-- Footer --><footer class="bg-gray-100 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-            <p>&copy; 2025 Deopath. All rights reserved. | Navigating your future.</p>
+            <p>&copy; 2025 Deopath<sup class="text-xs align-super">™</sup>. All rights reserved. | Navigating your future.</p>
         </div>
     </footer>
 
 </body>
-</html>                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 3-3m-4 6h4M4 12h4m-4 4h4m10 4h4m0-4h-4m-6 4h4"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Advanced Data Insights</h3>
-                        <p class="text-gray-600">Transforming raw data into meaningful business intelligence using cutting-edge machine learning and visualization tools.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--
+</html>
