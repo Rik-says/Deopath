@@ -5,133 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deopath | AI Explorer</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+    body { background-color:#0a0a0f; color:#e0e0ff; scroll-behavior:smooth; }
+    header { position:fixed; width:100%; background:rgba(10,10,15,0.8); backdrop-filter:blur(8px);
+             display:flex; justify-content:space-between; align-items:center; padding:15px 40px;
+             z-index:1000; border-bottom:1px solid rgba(0,255,255,0.2); }
+    header h1 { font-size:1.5em; color:#00ffff; letter-spacing:1px; }
+    nav a { margin:0 15px; text-decoration:none; color:#e0e0ff; transition:color 0.3s; }
+    nav a:hover { color:#00ffff; }
+    section { padding:100px 60px; min-height:100vh; position:relative; }
+    #home { text-align:center; color:#00ffff; overflow:hidden; }
+    #home h2 { font-size:3em; text-shadow:0 0 20px #00ffff; margin-bottom:15px; position:relative; z-index:2; }
+    #home p { font-size:1.2em; max-width:600px; line-height:1.6; color:#b0b0d0; position:relative; z-index:2; }
+    canvas#earthCanvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; }
 
-    body {
-      background-color: #0a0a0f;
-      color: #e0e0ff;
-      scroll-behavior: smooth;
-    }
+    .section-title { font-size:2em; color:#00ffff; text-align:center; margin-bottom:40px; text-shadow:0 0 15px #00ffff; }
+    .content { max-width:900px; margin:0 auto; line-height:1.8; color:#c0c0e0; }
+    footer { text-align:center; padding:30px; border-top:1px solid rgba(0,255,255,0.1); color:#7070a0; font-size:0.9em; }
 
-    header {
-      position: fixed;
-      width: 100%;
-      background: rgba(10,10,15,0.8);
-      backdrop-filter: blur(8px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0,255,255,0.2);
-    }
+    .project-card, .blog-card, .info-card { background: rgba(255,255,255,0.05); border:1px solid rgba(0,255,255,0.2); border-radius:15px; padding:20px; margin:20px 0; transition: transform 0.3s, box-shadow 0.3s; }
+    .project-card:hover, .blog-card:hover, .info-card:hover { transform: translateY(-5px); box-shadow:0 0 25px rgba(0,255,255,0.2); }
 
-    header h1 {
-      font-size: 1.5em;
-      color: #00ffff;
-      letter-spacing: 1px;
-    }
+    .info-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; align-items:center; }
+    .info-grid img { max-width:100px; display:block; margin:auto; }
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #e0e0ff;
-      transition: color 0.3s;
-    }
+    form input { width:100%; padding:10px; margin:10px 0; border-radius:8px; border:none; }
+    form button { padding:10px 20px; border:none; border-radius:8px; background:#00ffff; color:#0a0a0f; font-weight:bold; cursor:pointer; transition:0.3s; }
+    form button:hover { background:#00cccc; }
 
-    nav a:hover {
-      color: #00ffff;
+    @media (max-width:768px){
+      header { flex-direction:column; padding:15px 20px; }
+      nav { margin-top:10px; }
+      section { padding:80px 20px; }
+      #home h2 { font-size:2em; }
+      #home p { font-size:1em; }
+      .section-title { font-size:1.5em; margin-bottom:20px; }
+      .info-grid { grid-template-columns:1fr; text-align:center; }
     }
-
-    section {
-      padding: 100px 60px;
-      min-height: 100vh;
-    }
-
-    #home {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: radial-gradient(circle at top, #101020, #050509);
-    }
-
-    #home h2 {
-      font-size: 3em;
-      color: #00ffff;
-      text-shadow: 0 0 20px #00ffff;
-      margin-bottom: 15px;
-    }
-
-    #home p {
-      font-size: 1.2em;
-      max-width: 600px;
-      line-height: 1.6;
-      color: #b0b0d0;
-    }
-
-    .section-title {
-      font-size: 2em;
-      color: #00ffff;
-      text-align: center;
-      margin-bottom: 40px;
-      text-shadow: 0 0 15px #00ffff;
-    }
-
-    .content {
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.8;
-      color: #c0c0e0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      border-top: 1px solid rgba(0,255,255,0.1);
-      color: #7070a0;
-      font-size: 0.9em;
-    }
-
-    /* Smooth glow hover cards */
-    .project-card, .blog-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(0,255,255,0.2);
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px 0;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project-card:hover, .blog-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(0,255,255,0.2);
-    }
-
   </style>
 </head>
 <body>
+
   <header>
     <h1>Deopath</h1>
     <nav>
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
       <a href="#blog">AI Blog</a>
+      <a href="#info">Info</a>
+      <a href="#signup">Sign Up</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
+  <!-- Home Section with 3D Earth -->
   <section id="home">
-    <h2>Welcome to Deopath</h2>
-    <p>An AI enthusiast exploring the limitless world of technology and innovation. This space is built to share ideas, projects, and thoughts about Artificial Intelligence and beyond.</p>
+    <canvas id="earthCanvas"></canvas>
+    <div style="position:relative; z-index:2; top:50%; transform:translateY(-50%);">
+      <h2>Welcome to Deopath</h2>
+      <p>An AI enthusiast exploring the limitless world of technology and innovation.</p>
+    </div>
   </section>
 
+  <!-- Projects -->
   <section id="projects">
     <h2 class="section-title">Projects</h2>
     <div class="content">
@@ -146,6 +82,7 @@
     </div>
   </section>
 
+  <!-- Blog -->
   <section id="blog">
     <h2 class="section-title">AI Blog</h2>
     <div class="content">
@@ -160,6 +97,37 @@
     </div>
   </section>
 
+  <!-- Info -->
+  <section id="info">
+    <h2 class="section-title">Info</h2>
+    <div class="content info-grid">
+      <div class="info-card">
+        <p><strong>Founder:</strong> Soumodeep Patra</p>
+        <p><strong>CEO:</strong> Soumodeep Patra</p>
+        <p><strong>Date of Foundation:</strong> 10-Nov-2025</p>
+        <p><strong>Special Partner:</strong> Chat-GPT</p>
+      </div>
+      <div class="info-card">
+        <p><strong>Made in India</strong></p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Made_in_India_Logo.svg" alt="Made in India Logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Sign Up Form -->
+  <section id="signup">
+    <h2 class="section-title">Create Account</h2>
+    <div class="content">
+      <form id="signupForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="tel" id="mobile" placeholder="Mobile Number" required />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact -->
   <section id="contact">
     <h2 class="section-title">Contact</h2>
     <div class="content">
@@ -170,5 +138,72 @@
   <footer>
     <p>© Deopath 2025 | All rights reserved.</p>
   </footer>
+
+  <!-- Three.js for 3D Earth -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+  <script>
+    const canvas = document.getElementById('earthCanvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const loader = new THREE.TextureLoader();
+    scene.background = loader.load('https://cdn.jsdelivr.net/gh/plotly/datasets@master/starfield.jpg');
+
+    const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
+    const earthMaterial = new THREE.MeshPhongMaterial({
+      map: loader.load('https://raw.githubusercontent.com/ajaydev76/earth-assets/main/earth_daymap.jpg'),
+      bumpMap: loader.load('https://raw.githubusercontent.com/ajaydev76/earth-assets/main/earth_bump.jpg'),
+      bumpScale: 0.05,
+      specularMap: loader.load('https://raw.githubusercontent.com/ajaydev76/earth-assets/main/earth_specular.jpg'),
+      specular: new THREE.Color('grey')
+    });
+    const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+    scene.add(earth);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff,0.6);
+    scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xffffff,1);
+    pointLight.position.set(5,5,5);
+    scene.add(pointLight);
+
+    camera.position.z = 6;
+    function animate(){ requestAnimationFrame(animate); earth.rotation.y += 0.002; renderer.render(scene,camera); }
+    animate();
+
+    window.addEventListener('resize', ()=>{
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
+  <!-- Firebase for Signup Form -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    document.getElementById('signupForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const name = document.getElementById('name').value;
+      const mobile = document.getElementById('mobile').value;
+      db.collection('users').add({username,name,mobile})
+        .then(()=>alert("Account created!"))
+        .catch(err=>console.error(err));
+    });
+  </script>
+
 </body>
 </html>
